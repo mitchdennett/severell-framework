@@ -1,4 +1,4 @@
-package com.mitchdennett.main;
+package{{.Package}};
 
 import com.mitchdennett.framework.providers.AppProvider;
 import com.mitchdennett.framework.providers.MailProvider;

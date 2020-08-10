@@ -1,4 +1,4 @@
-package com.mitchdennett.main;
+package{{.Package}};
 
 import com.mitchdennett.framework.config.Config;
 import com.mitchdennett.framework.container.Container;
@@ -6,7 +6,6 @@ import com.mitchdennett.framework.container.Container;
 import com.mitchdennett.framework.providers.ServiceProvider;
 import org.eclipse.jetty.server.Server;
 import org.javalite.activejdbc.Base;
-
 
 public class Main {
 

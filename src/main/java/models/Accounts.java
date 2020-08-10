@@ -1,4 +1,4 @@
-package com.mitchdennett.models;
+package{{.Package}};
 
 import org.javalite.activejdbc.Model;
 
