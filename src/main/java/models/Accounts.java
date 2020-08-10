@@ -1,4 +1,4 @@
-package{{.Package}};
+package {{.Package}}.models;
 
 import org.javalite.activejdbc.Model;
 

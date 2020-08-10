@@ -1,4 +1,4 @@
-package{{.Package}};
+package {{ .Package }}.routes;
 
 import com.mitchdennett.framework.http.Router;
 

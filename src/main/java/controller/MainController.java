@@ -1,4 +1,4 @@
-package{{.Package}};
+package {{.Package}}.controller;
 
 import com.mitchdennett.framework.http.Request;
 import com.mitchdennett.framework.http.Response;

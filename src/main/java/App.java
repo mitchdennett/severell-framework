@@ -1,4 +1,4 @@
-package{{.Package}};
+package {{.Package}};
 
 import com.mitchdennett.framework.config.Config;
 import com.mitchdennett.framework.container.Container;
