@@ -14,20 +14,20 @@ import java.util.HashMap;
 public class MainController {
 
     public static void index(Request request, Response resp) throws IOException {
-        resp.view("index.mustache", new HashMap<>());
+        resp.view("index.mustache", new HashMap<String, Object>());
     }
 
     public static void blog(Request request, Response resp) throws IOException {
         System.out.println(request.getParam("id"));
-        resp.view("blog.mustache", new HashMap<>());
+        resp.view("blog.mustache", new HashMap<String, Object>());
     }
 
     public static void register(Request request, Response resp) throws IOException {
-        resp.view("auth/register.mustache", new HashMap<>());
+        resp.view("auth/register.mustache", new HashMap<String, Object>());
     }
 
     public static void login(Request request, Response resp, Session session, Auth auth) throws IOException {
-        resp.view("auth/login.mustache", new HashMap<>());
+        resp.view("auth/login.mustache", new HashMap<String, Object>());
     }
 
     public static void loginPost(Request req, Auth auth, Response resp) throws IOException {
