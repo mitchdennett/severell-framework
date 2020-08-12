@@ -1,15 +1,14 @@
-package {{.Package}};
+package {{.Package}}.main;
 
-import com.mitchdennett.framework.providers.AppProvider;
-import com.mitchdennett.framework.providers.MailProvider;
-import com.mitchdennett.framework.providers.RouteProvider;
-import com.mitchdennett.framework.providers.ServiceProvider;
+import com.mitchdennett.framework.providers.*;
 
 public class Providers {
 
     public static final Class<ServiceProvider>[] PROVIDERS = new Class[]{
             AppProvider.class,
+            MiddlewareProvider.class,
             RouteProvider.class,
+            SessionProvider.class,
             MailProvider.class
     };
 }

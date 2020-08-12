@@ -1,15 +1,16 @@
-package {{.Package}};
+package {{.Package}}.main;
 
 import com.mitchdennett.framework.config.Config;
 import com.mitchdennett.framework.container.Container;
-
 import com.mitchdennett.framework.providers.ServiceProvider;
 import org.eclipse.jetty.server.Server;
-import org.javalite.activejdbc.Base;
+
+import javax.naming.NamingException;
+
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NamingException {
         try {
             Config.loadConfig();
         }catch (Exception e) {
@@ -31,8 +32,6 @@ public class Main {
             }
         }
 
-        Base.open(Config.get("DB_DRIVER"),Config.get("DB_CONNSTRING"), Config.get("DB_USERNAME"),Config.get("DB_PASSWORD"));
-
         for(Class p : Providers.PROVIDERS) {
             try {
                 ServiceProvider provider = (ServiceProvider) p.getDeclaredConstructor(Container.class).newInstance(c);
@@ -42,6 +41,7 @@ public class Main {
                 System.exit(1);
             }
         }
+
 
         try {
             server.start();
