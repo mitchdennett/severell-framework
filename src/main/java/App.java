@@ -1,4 +1,4 @@
-package {{.Package}}.main;
+package {{.Package}};
 
 import com.mitchdennett.framework.config.Config;
 import com.mitchdennett.framework.container.Container;
@@ -8,7 +8,7 @@ import org.eclipse.jetty.server.Server;
 import javax.naming.NamingException;
 
 
-public class Main {
+public class App {
 
     public static void main(String[] args) throws NamingException {
         try {

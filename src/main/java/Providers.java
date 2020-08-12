@@ -1,4 +1,4 @@
-package {{.Package}}.main;
+package {{.Package}};
 
 import com.mitchdennett.framework.providers.*;
 
