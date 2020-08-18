@@ -1,6 +1,6 @@
 package {{.Package}}.controller.auth;
 
-import com.mitchdennett.framework.auth.Auth;
+import {{.Package}}.auth.Auth;
 import com.mitchdennett.framework.crypto.PasswordUtils;
 import com.mitchdennett.framework.drivers.Session;
 import com.mitchdennett.framework.http.Request;
