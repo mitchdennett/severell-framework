@@ -9,13 +9,12 @@ import java.util.List;
 public class Auth extends NeedsRequest {
 
     public boolean login(String username, String password) {
-        List<User> list = User.where("email = '"  + username + "'");
+        User user = new QUser().email.equalTo(username).findOne();
         boolean auth = false;
-        if(list != null && list.size() > 0) {
-            User user = list.get(0);
-            auth = PasswordUtils.checkPassword(password, user.getString("password"));
+        if(user != null) {
+            auth = PasswordUtils.checkPassword(password, user.getPassword());
             if(auth) {
-                request.getSession().setAttribute("userid", user.get("id"));
+                request.getSession().setAttribute("userid", user.getId());
             }
         }
 

@@ -34,10 +34,10 @@ public class AuthController {
         System.out.println(PasswordUtils.hashPassword(req.input("password")));
 
         User user = new User();
-        user.set("email", req.input("email"));
-        user.set("password", PasswordUtils.hashPassword(req.input("password")));
-        user.set("name", req.input("email"));
-        user.saveIt();
+        user.setEmail(req.input("email"));
+        user.setPassword(PasswordUtils.hashPassword(req.input("password")));
+        user.setName(req.input("email"));
+        user.save();
 
         auth.login(req.input("email"), req.input("password"));
 
