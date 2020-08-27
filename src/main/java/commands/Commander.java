@@ -3,6 +3,7 @@ package {{.Package}}.commands;
 import com.mitchdennett.framework.commands.Command;
 import com.mitchdennett.framework.commands.Flag;
 import com.mitchdennett.framework.config.Config;
+import org.apache.maven.shared.utils.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -50,6 +51,9 @@ public class Commander {
 
     private static void runCommand(String clazz, String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Command command = (Command) Class.forName(clazz).getDeclaredConstructor().newInstance();
+        String[] parts = Commander.class.getCanonicalName().split("\\.");
+        String[] subarray = Arrays.copyOfRange(parts, 0, parts.length - 2);
+        command.setCalleePackage(StringUtils.join(subarray, "."));
         command.run(args);
     }
 
