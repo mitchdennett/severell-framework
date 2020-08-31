@@ -24,7 +24,7 @@ public class App {
             c.bind("_MiddlewareList", Middleware.MIDDLEWARE);
             c.bind(new Auth());
     
-            Server server = new Server(8080);
+            Server server = new Server(Integer.parseInt(Config.get("PORT")));
             c.bind(server);
     
             try {

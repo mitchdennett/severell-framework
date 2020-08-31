@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+let mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,10 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/main/webapp/WEB-INF/static/js/app.js', 'src/main/webapp/WEB-INF/compiled/js')
-    .postCss('src/main/webapp/WEB-INF/static/css/tailwind.css', 'src/main/webapp/WEB-INF/compiled/css/main.css', [
-        require('tailwindcss')
-    ]);
+mix.js(
+	"src/main/resources/static/js/app.js",
+	"src/main/resources/compiled/js"
+).postCss(
+	"src/main/resources/static/css/tailwind.css",
+	"src/main/resources/compiled/css/main.css",
+	[require("tailwindcss")]
+);
 
 // Full API
 // mix.js(src, output);
