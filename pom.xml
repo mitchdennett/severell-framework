@@ -133,7 +133,7 @@
           </descriptors>
           <archive>
             <manifest>
-              <mainClass>{{ .Pacakge }}.App</mainClass>
+              <mainClass>{{ .Package }}.App</mainClass>
             </manifest>
           </archive>
         </configuration>
