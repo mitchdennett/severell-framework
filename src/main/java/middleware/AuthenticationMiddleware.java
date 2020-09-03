@@ -1,17 +1,24 @@
 package {{.Package}}.middleware;
 
-import com.mitchdennett.framework.annotations.Before;
 import com.mitchdennett.framework.drivers.Session;
+import com.mitchdennett.framework.http.MiddlewareChain;
+import com.mitchdennett.framework.http.Request;
 import com.mitchdennett.framework.http.Response;
+import com.mitchdennett.framework.middleware.Middleware;
 
-import java.io.IOException;
+import javax.inject.Inject;
 
-public class AuthenticationMiddleware {
+public class AuthenticationMiddleware implements Middleware {
 
-    @Before
-    public void before(Session session, Response resp) throws IOException {
+    @Inject
+    private Session session;
+
+    @Override
+    public void handle(Request request, Response response, MiddlewareChain middlewareChain) throws Exception {
         if(session.get("userid") == null) {
-            resp.redirect("/login");
+            response.redirect("/login");
+        } else {
+            middlewareChain.next();
         }
     }
 }
