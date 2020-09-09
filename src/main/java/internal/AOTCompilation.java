@@ -204,8 +204,8 @@ public class AOTCompilation {
     private static void buildMiddleware(Container c, MethodSpec.Builder builder, ArrayList<Class> classList, String middlwareListName) {
         builder.addStatement("$T<$T> " + middlwareListName + " = new $T<>()",ArrayList.class, MiddlewareExecutor.class, ArrayList.class);
         if(classList != null) {
-            CodeBlock.Builder middlewareBuilder = CodeBlock.builder();
             for (Class mid : classList) {
+                CodeBlock.Builder middlewareBuilder = CodeBlock.builder();
                 Constructor constr = mid.getConstructors()[0];
                 middlewareBuilder
                         .add("(request, response, container, chain) -> {\n").indent();
@@ -214,8 +214,9 @@ public class AOTCompilation {
                 resolve(c, middlewareBuilder, middlwareParamList, parameters);
                 middlewareBuilder.addStatement("$T middleware = new $T($L)", mid, mid, StringUtils.join(middlwareParamList.iterator(), ","));
                 middlewareBuilder.addStatement("middleware.handle(request, response, chain)");
+                builder.addStatement(middlwareListName + ".add(new $T($L))", MiddlewareExecutor.class, middlewareBuilder.unindent().add("}").build().toString());
             }
-            builder.addStatement(middlwareListName + ".add(new $T($L))", MiddlewareExecutor.class, middlewareBuilder.unindent().add("}").build().toString());
+
         }
     }
 
