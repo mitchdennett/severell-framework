@@ -28,7 +28,7 @@
     <dependency>
       <groupId>com.severell</groupId>
       <artifactId>core</artifactId>
-      <version>0.01-SNAPSHOT</version>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>io.ebean</groupId>
