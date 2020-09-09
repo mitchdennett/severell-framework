@@ -26,9 +26,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.mitchdennett</groupId>
-      <artifactId>severell-framework</artifactId>
-      <version>0.03-SNAPSHOT</version>
+      <groupId>com.severell</groupId>
+      <artifactId>core</artifactId>
+      <version>0.01-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>io.ebean</groupId>
