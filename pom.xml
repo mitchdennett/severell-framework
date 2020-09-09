@@ -26,16 +26,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-server</artifactId>
-      <version>9.4.31.v20200723</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-servlet</artifactId>
-      <version>9.4.31.v20200723</version>
-    </dependency>
-    <dependency>
       <groupId>com.mitchdennett</groupId>
       <artifactId>severell-framework</artifactId>
       <version>0.03-SNAPSHOT</version>
