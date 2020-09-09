@@ -6,12 +6,13 @@ import com.mitchdennett.framework.http.Request;
 import com.mitchdennett.framework.http.Response;
 import com.mitchdennett.framework.middleware.Middleware;
 
-import javax.inject.Inject;
-
 public class AuthenticationMiddleware implements Middleware {
 
-    @Inject
     private Session session;
+
+    public AuthenticationMiddleware(Session session) {
+        this.session = session;
+    }
 
     @Override
     public void handle(Request request, Response response, MiddlewareChain middlewareChain) throws Exception {

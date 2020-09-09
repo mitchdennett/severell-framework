@@ -8,7 +8,6 @@ public class Providers {
             AppProvider.class,
             SessionProvider.class,
             MailProvider.class,
-            MiddlewareProvider.class,
             RouteProvider.class
     };
 }

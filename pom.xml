@@ -101,11 +101,21 @@
             <goals>
               <goal>exec</goal>
             </goals>
+            <configuration>
+              <executable>maven</executable>
+            </configuration>
+          </execution>
+          <execution>
+            <id>1</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <mainClass>com.mylo.mylotest.internal.AOTCompilation</mainClass>
+            </configuration>
           </execution>
         </executions>
-        <configuration>
-          <executable>maven</executable>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

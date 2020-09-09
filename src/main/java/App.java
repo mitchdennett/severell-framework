@@ -13,55 +13,56 @@ import javax.naming.NamingException;
 public class App {
 
     public static void main(String[] args) throws NamingException {
-        {
+        try {
+            Config.loadConfig();
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        Container c = new Container();
+        c.singleton("_MiddlewareList", Middleware.MIDDLEWARE);
+        c.singleton(Auth.class, new Auth());
+
+        Server server = new Server(8080);
+        c.singleton(Server.class, server);
+
+        for(Class p : Providers.PROVIDERS) {
             try {
-                Config.loadConfig();
+                ServiceProvider provider = (ServiceProvider) p.getDeclaredConstructor(Container.class).newInstance(c);
+                provider.register();
             }catch (Exception e) {
                 e.printStackTrace();
                 System.exit(1);
             }
-            Container c = new Container();
-            c.bind("_MiddlewareList", Middleware.MIDDLEWARE);
-            c.bind(new Auth());
-    
-            Server server = new Server(Integer.parseInt(Config.get("PORT")));
-            c.bind(server);
-    
+        }
+
+        try {
+            RouteBuilder builder = new RouteBuilder();
+            ArrayList routes = builder.build();
+            Router.setCompiledRoutes(routes);
+            c.singleton("DefaultMiddleware", builder.buildDefaultMiddleware());
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        for(Class p : Providers.PROVIDERS) {
             try {
-                Routes.init();
+                ServiceProvider provider = (ServiceProvider) p.getDeclaredConstructor(Container.class).newInstance(c);
+                provider.boot();
             }catch (Exception e) {
                 e.printStackTrace();
                 System.exit(1);
             }
-    
-            for(Class p : Providers.PROVIDERS) {
-                try {
-                    ServiceProvider provider = (ServiceProvider) p.getDeclaredConstructor(Container.class).newInstance(c);
-                    provider.register();
-                }catch (Exception e) {
-                    e.printStackTrace();
-                    System.exit(1);
-                }
-            }
-    
-            for(Class p : Providers.PROVIDERS) {
-                try {
-                    ServiceProvider provider = (ServiceProvider) p.getDeclaredConstructor(Container.class).newInstance(c);
-                    provider.boot();
-                }catch (Exception e) {
-                    e.printStackTrace();
-                    System.exit(1);
-                }
-            }
-    
-    
-            try {
-                server.start();
-                server.join();
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.exit(1);
-            }
+        }
+
+
+        try {
+            server.start();
+            server.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
         }
     }
 }
