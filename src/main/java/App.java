@@ -1,12 +1,11 @@
 package {{.Package}};
 
 import {{.Package}}.auth.Auth;
-import {{.Package}}.routes.Routes;
+import com.mitchdennett.framework.http.AppServer;
 import com.mitchdennett.framework.config.Config;
 import com.mitchdennett.framework.container.Container;
 import com.mitchdennett.framework.http.Router;
 import com.mitchdennett.framework.providers.ServiceProvider;
-import org.eclipse.jetty.server.Server;
 
 import javax.naming.NamingException;
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ public class App {
         c.singleton("_MiddlewareList", Middleware.MIDDLEWARE);
         c.singleton(Auth.class, new Auth());
 
-        Server server = new Server(Integer.parseInt(Config.get("PORT", "8080")));
-        c.singleton(Server.class, server);
+        AppServer server = new AppServer(Config.get("PORT", "8080"));
+        c.singleton(AppServer.class, server);
 
         for(Class p : Providers.PROVIDERS) {
             try {
@@ -61,7 +60,6 @@ public class App {
 
         try {
             server.start();
-            server.join();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);

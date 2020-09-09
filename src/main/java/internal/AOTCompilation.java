@@ -121,7 +121,11 @@ public class AOTCompilation {
 
         List<String> optionList = new ArrayList<String>();
         optionList.add("-classpath");
-        optionList.add(getClassPath());
+		optionList.add(getClassPath());
+		optionList.add("-source");
+        optionList.add("1.8");
+        optionList.add("-target");
+        optionList.add("1.8");
         // Compile the file
         compiler.getTask(null,
                 fileManager,
