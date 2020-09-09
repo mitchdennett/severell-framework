@@ -13,15 +13,15 @@ import java.util.HashMap;
 
 public class AuthController {
 
-	public static void register(Request request, Response resp) throws IOException {
+	public void register(Request request, Response resp) throws IOException {
         resp.render("auth/register.mustache", new HashMap<String, Object>());
     }
 
-    public static void login(Request request, Response resp, Session session, Auth auth) throws IOException {
+    public void login(Request request, Response resp, Session session, Auth auth) throws IOException {
         resp.render("auth/login.mustache", new HashMap<String, Object>());
     }
 
-    public static void loginPost(Request req, Auth auth, Response resp) throws IOException {
+    public void loginPost(Request req, Auth auth, Response resp) throws IOException {
         if(auth.login(req.input("email"), req.input("password"))){
             resp.redirect("/");
         } else {
@@ -29,7 +29,7 @@ public class AuthController {
         }
     }
 
-    public static void registerPost(Request req, Auth auth, Response resp) throws IOException {
+    public void registerPost(Request req, Auth auth, Response resp) throws IOException {
         System.out.println();
         System.out.println(PasswordUtils.hashPassword(req.input("password")));
 
