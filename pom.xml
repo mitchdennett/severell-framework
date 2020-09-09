@@ -112,7 +112,7 @@
               <goal>java</goal>
             </goals>
             <configuration>
-              <mainClass>com.mylo.mylotest.internal.AOTCompilation</mainClass>
+              <mainClass>{{ .BasePackage }}.internal.AOTCompilation</mainClass>
             </configuration>
           </execution>
         </executions>
