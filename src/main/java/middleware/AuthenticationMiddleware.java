@@ -1,10 +1,10 @@
 package {{.Package}}.middleware;
 
-import com.mitchdennett.framework.drivers.Session;
-import com.mitchdennett.framework.http.MiddlewareChain;
-import com.mitchdennett.framework.http.Request;
-import com.mitchdennett.framework.http.Response;
-import com.mitchdennett.framework.middleware.Middleware;
+import com.severell.core.drivers.Session;
+import com.severell.core.http.MiddlewareChain;
+import com.severell.core.http.Request;
+import com.severell.core.http.Response;
+import com.severell.core.middleware.Middleware;
 
 public class AuthenticationMiddleware implements Middleware {
 

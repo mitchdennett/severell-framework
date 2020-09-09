@@ -1,8 +1,8 @@
 package {{.Package}}.commands;
 
-import com.mitchdennett.framework.commands.Command;
-import com.mitchdennett.framework.commands.Flag;
-import com.mitchdennett.framework.config.Config;
+import com.severell.core.commands.Command;
+import com.severell.core.commands.Flag;
+import com.severell.core.config.Config;
 import org.apache.maven.shared.utils.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

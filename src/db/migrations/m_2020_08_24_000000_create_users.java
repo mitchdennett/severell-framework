@@ -1,8 +1,8 @@
 package migrations;
 
-import com.mitchdennett.framework.database.migrations.Blueprint;
-import com.mitchdennett.framework.database.migrations.MigrationException;
-import com.mitchdennett.framework.database.migrations.Schema;
+import com.severell.core.database.migrations.Blueprint;
+import com.severell.core.database.migrations.MigrationException;
+import com.severell.core.database.migrations.Schema;
 
 public class m_2020_08_24_000000_create_users {
 

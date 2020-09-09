@@ -1,7 +1,7 @@
 package {{.Package}}.controller;
 
-import com.mitchdennett.framework.http.Request;
-import com.mitchdennett.framework.http.Response;
+import com.severell.core.http.Request;
+import com.severell.core.http.Response;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
 package {{.Package}};
 
-import com.mitchdennett.framework.middleware.CsrfMiddleware;
-import com.mitchdennett.framework.middleware.SecureHeadersMiddleware;
+import com.severell.core.middleware.CsrfMiddleware;
+import com.severell.core.middleware.SecureHeadersMiddleware;
 
 public class Middleware {
 

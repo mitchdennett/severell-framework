@@ -1,7 +1,7 @@
 package {{.Package}};
 
-import com.mitchdennett.framework.http.MiddlewareExecutor;
-import com.mitchdennett.framework.http.RouteExecutor;
+import com.severell.core.http.MiddlewareExecutor;
+import com.severell.core.http.RouteExecutor;
 
 import java.util.ArrayList;
 

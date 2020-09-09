@@ -1,9 +1,9 @@
 package {{.Package}}.internal;
 
-import com.mitchdennett.framework.config.Config;
-import com.mitchdennett.framework.container.Container;
-import com.mitchdennett.framework.http.*;
-import com.mitchdennett.framework.providers.ServiceProvider;
+import com.severell.core.config.Config;
+import com.severell.core.container.Container;
+import com.severell.core.http.*;
+import com.severell.core.providers.ServiceProvider;
 import {{.Package}}.Middleware;
 import {{.Package}}.Providers;
 import {{.Package}}.auth.Auth;

@@ -1,6 +1,6 @@
 package {{.Package}};
 
-import com.mitchdennett.framework.providers.*;
+import com.severell.core.providers.*;
 
 public class Providers {
 

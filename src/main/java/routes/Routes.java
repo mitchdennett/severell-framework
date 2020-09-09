@@ -1,6 +1,6 @@
 package {{.Package}}.routes;
 
-import com.mitchdennett.framework.http.Router;
+import com.severell.core.http.Router;
 
 public class Routes {
 

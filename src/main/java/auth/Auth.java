@@ -1,7 +1,7 @@
 package {{.Package}}.auth;
 
-import com.mitchdennett.framework.crypto.PasswordUtils;
-import com.mitchdennett.framework.http.NeedsRequest;
+import com.severell.core.crypto.PasswordUtils;
+import com.severell.core.http.NeedsRequest;
 import {{.Package}}.models.User;
 import {{.Package}}.models.query.QUser;
 

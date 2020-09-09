@@ -1,6 +1,6 @@
 package {{.Package}}.commands;
 
-import com.mitchdennett.framework.commands.*;
+import com.severell.core.commands.*;
 
 public class Commands {
 

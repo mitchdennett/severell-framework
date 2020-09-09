@@ -1,10 +1,10 @@
 package {{.Package}}.controller.auth;
 
 import {{.Package}}.auth.Auth;
-import com.mitchdennett.framework.crypto.PasswordUtils;
-import com.mitchdennett.framework.drivers.Session;
-import com.mitchdennett.framework.http.Request;
-import com.mitchdennett.framework.http.Response;
+import com.severell.core.crypto.PasswordUtils;
+import com.severell.core.drivers.Session;
+import com.severell.core.http.Request;
+import com.severell.core.http.Response;
 import {{.Package}}.models.User;
 
 import java.io.IOException;
