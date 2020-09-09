@@ -14,11 +14,11 @@ import java.util.HashMap;
 public class AuthController {
 
 	public static void register(Request request, Response resp) throws IOException {
-        resp.view("auth/register.mustache", new HashMap<String, Object>());
+        resp.render("auth/register.mustache", new HashMap<String, Object>());
     }
 
     public static void login(Request request, Response resp, Session session, Auth auth) throws IOException {
-        resp.view("auth/login.mustache", new HashMap<String, Object>());
+        resp.render("auth/login.mustache", new HashMap<String, Object>());
     }
 
     public static void loginPost(Request req, Auth auth, Response resp) throws IOException {
