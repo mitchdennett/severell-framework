@@ -1,6 +1,7 @@
 package {{.Package}};
 
 import com.severell.core.providers.*;
+import com.severell.core.jetty.JettyProvider;
 
 public class Providers {
 
