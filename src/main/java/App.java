@@ -25,7 +25,7 @@ public class App {
         c.singleton("_MiddlewareList", Middleware.MIDDLEWARE);
         c.singleton(Auth.class, new Auth());
 
-        Server server = new Server(Config.get("PORT"));
+        Server server = new Server(Integer.parseInt(Config.get("PORT", "8080")));
         c.singleton(Server.class, server);
 
         for(Class p : Providers.PROVIDERS) {
